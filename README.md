@@ -4,11 +4,11 @@ Anix is a to-be somewhat functional OS made by mflight. The goal is "Age doesn't
 
 ```text
 [any program, whatever] --install
-```
+```               
 
 Then Linux, which, in Debian-based distros, is this:
 ```text
- sudo apt-get install [any program] or sudo apt install [any program]
+sudo apt-get install [any program] or sudo apt install [any program]
 ```
 
 Then in Fedora:
@@ -26,7 +26,7 @@ Then SUSE:
 sudo zypper install [Program(LMMS???)]
 ```
 
-So, MFlight wants to make it universal, so you can do all of the above, Windows is an exception.
+So, MFlight wants to make it universal, so you can do all of the above. For now, ANIX is focused on Linux. Windows support may come later.
 
 
 So... That sounds easier, right? Well, there could be security flaws, right? So, I am learning, and I'll update later, bye!!!
