@@ -13,7 +13,7 @@ Then Linux, which, in Debian-based distros, is this:
 
 Then in Fedora:
 ```text
-sudo dnf [A program]
+sudo dnf install [A program]
 ```
 
 Then Arch:
@@ -21,7 +21,7 @@ Then Arch:
 sudo pacman -S [A program]
 ```
 
-Then SUSE (🤣🤣🤣)
+Then SUSE
 ```text
 sudo zypper install [Program(LMMS???)]
 ```
