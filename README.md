@@ -21,14 +21,12 @@ Then Arch:
 sudo pacman -S [A program]
 ```
 
-Then SUSE
+Then SUSE:
 ```text
 sudo zypper install [Program(LMMS???)]
 ```
 
-So, MFlight wants to make this:
-```text
-sudo 
-```
+So, MFlight wants to make it universal, so you can do all of the above, Windows is an exeption.
+
 
 So... That sounds easier, right? Well, there could be security flaws, right? So, I am learning, and I'll update later, bye!!!
