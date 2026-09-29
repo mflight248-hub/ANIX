@@ -8,19 +8,19 @@ void numberInput(){
     Sleep(1000); 
     printf("Type a number: \n"); 
     scanf("%d", &oofly); 
-    
-    printf("\rProcessing. "); 
+
+    // Start the line with 'Processing'
+    printf("\rProcessing."); 
     fflush(stdout); 
-    Sleep(1000); 
+
+    // This loop runs 3 times, adding one dot '.' each second
+    for (int i = 0; i < 3; i++) {
+        Sleep(1000); 
+        printf("."); 
+        fflush(stdout); 
+    }
     
-    printf("\rProcessing.. "); 
-    fflush(stdout); 
-    Sleep(1000); 
-    
-    printf("\rProcessing...\n"); 
-    fflush(stdout); 
-    Sleep(1000); 
-    
+    printf("\n"); // Move to a new line after the dots finish
     printf("Your number is: %d\n", oofly); 
 } 
 
@@ -41,4 +41,3 @@ int main(void){
     Sleep(1000);
     return 0; 
 }
-//python, not python, not C, wait, C :)
