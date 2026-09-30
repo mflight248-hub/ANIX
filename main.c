@@ -1,26 +1,23 @@
 #include <stdio.h> 
-#include <Windows.h> 
+#include <Windows.h>
 
 int oofly; 
 
 void numberInput(){ 
     printf("Hello, world!\n"); 
-    Sleep(1000); 
+    Sleep(1000);
     printf("Type a number: \n"); 
     scanf("%d", &oofly); 
-
-    // Start the line with 'Processing'
-    printf("\rProcessing."); 
+    Sleep(1000);
+    printf("\rProcessing"); 
     fflush(stdout); 
-
-    // This loop runs 3 times, adding one dot '.' each second
     for (int i = 0; i < 3; i++) {
-        Sleep(1000); 
+        Sleep(1000);
         printf("."); 
         fflush(stdout); 
     }
+    printf("\n");
     
-    printf("\n"); // Move to a new line after the dots finish
     printf("Your number is: %d\n", oofly); 
 } 
 
@@ -30,14 +27,15 @@ int main(void){
     printf("\033[34m | |  | |___ |    |    |  | |\\/| |___     |  |  |    |__| |\\ | |  \\/  \n");
     printf("\033[36m |_|\\/| |___ |___ |___ |__| |  | |___     |  |__|    |  | | \\| | _/\\_ \n");
     printf("\033[0m\n"); 
-    
-    Sleep(700); 
-    numberInput(); 
-    Sleep(1000); 
-    
+
+    Sleep(1000);
+    numberInput(); // Run terminal input first!
+    Sleep(1000);
+
     printf("So, you like the number %d?\n", oofly);  //shows if you like your number
     Sleep(1000);
-    printf("Oh, Ok :)");
+    printf("Oh, Ok :)\n");
     Sleep(1000);
     return 0; 
 }
+//python, not python, not C, wait, C :)
