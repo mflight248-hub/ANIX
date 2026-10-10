@@ -29,4 +29,11 @@ sudo zypper install [Program(LMMS???)]
 So, MFlight wants to make it universal, so you can do all of the above. For now, ANIX is focused on Linux. Windows support may come later.
 
 
-So... That sounds easier, right? Well, there could be security flaws, right? So, I am learning, and I'll update later, bye!!!
+So... That sounds easier, right? Well, there could be security flaws, right? So, if you want to run it, you can't just press the play button and run this in, say VSCode. This next part will help you run this on Windows and Linux (MacOS I don't know) :P
+
+## Installation
+
+OSs are made up of 3 languages, C (or any other low-level language like C++, Rust or even <b>ASSEMBLY 😫</b>), Assembly, and Linker Script. If you have experience with 3rd Party Compilers, you know that you might need to use a CLI (Command Line Interfearence). The things that you need are:
+<ul>
+  <li>GCC</li>
+  
