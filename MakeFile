@@ -1,0 +1,49 @@
+# Define the compiler and linker (Cross-compilers are highly recommended)
+CC = i686-elf-gcc
+LD = i686-elf-ld
+
+# Target kernel image name
+KERNEL = mykernel.bin
+
+# Directories
+SRCDIR = src
+OBJDIR = obj
+
+# Compiler Flags for Kernel Development
+# -ffreestanding: Tells the compiler the standard library may not exist
+# -nostdlib: Do not use the standard system startup files or libraries
+# -fno-builtin: Disable built-in function optimizations (like converting printf to puts)
+CFLAGS = -m32 -ffreestanding -O2 -Wall -Wextra -Iinclude -fno-builtin
+LDFLAGS = -m elf_i386 -T linker.ld -nostdlib
+
+# Find all assembly (.asm/.s) and C (.c) source files
+SRCS_C   := $(shell find $(SRCDIR) -name '*.c')
+SRCS_ASM := $(shell find $(SRCDIR) -name '*.asm' -o -name '*.s')
+
+# Map source files to the object directory
+OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(SRCS_C)) \
+        $(patsubst $(SRCDIR)/%.asm, $(OBJDIR)/%.o, $(SRCS_ASM))
+
+# Default rule
+.PHONY: all clean
+
+all: $(KERNEL)
+
+# Link the kernel binary
+$(KERNEL): $(OBJS)
+	@mkdir -p $(@D)
+	$(LD) $(LDFLAGS) -o $@ $^
+
+# Compile C source files
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Compile Assembly source files (Assuming NASM syntax)
+$(OBJDIR)/%.o: $(SRCDIR)/%.asm
+	@mkdir -p $(@D)
+	nasm -f elf32 $< -o $@
+
+# Clean build artifacts
+clean:
+	rm -rf $(OBJDIR) $(KERNEL)
