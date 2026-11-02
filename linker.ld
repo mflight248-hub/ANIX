@@ -1,45 +1,40 @@
-/* 1. Define the output binary format and architecture */
-OUTPUT_FORMAT("elf32-i386")
-OUTPUT_ARCH(i386)
-
-/* 2. Define the execution entry point (the label of your first assembly instruction) */
 ENTRY(_start)
+OUTPUT_FORMAT(elf32-i386)
+OUTPUT_ARCH(i386)
 
 SECTIONS
 {
-    /* 3. Begin assigning memory at 1MB. 
-          This is standard practice for custom kernels to avoid BIOS/MMIO memory holes. */
+    /* GRUB loads the kernel into physical RAM starting at 1MB */
     . = 0x00100000;
 
-    /* 4. The Text Section: Contains your executable code */
+    /* Executable code and Multiboot Header */
     .text : ALIGN(4K)
     {
-        /* CRITICAL: Force the Multiboot header to the absolute front of the binary,
-           otherwise GRUB/bootloaders won't recognize it as a bootable kernel. */
+        /* CRITICAL: The Multiboot header must be within the first 8KB */
         KEEP(*(.multiboot))
-        
-        *(.text)
+        *(.text.boot)
+        *(.text*)
     }
 
-    /* 5. The Read-Only Data Section: Contains constants, strings, etc. */
+    /* Read-only data (constants, strings) */
     .rodata : ALIGN(4K)
     {
-        *(.rodata)
+        *(.rodata*)
     }
 
-    /* 6. The Data Section: Contains initialized global variables */
+    /* Initialised writable data */
     .data : ALIGN(4K)
     {
-        *(.data)
+        *(.data*)
     }
 
-    /* 7. The BSS Section: Contains uninitialized global variables and the kernel stack */
+    /* Uninitialised data (Stack, Heap) */
     .bss : ALIGN(4K)
     {
         *(COMMON)
-        *(.bss)
+        *(.bss*)
     }
 
-    /* 8. Provide a visual anchor mark for the end of the kernel in memory */
+    /* Define a symbol for the end of the kernel memory image */
     _kernel_end = .;
 }
