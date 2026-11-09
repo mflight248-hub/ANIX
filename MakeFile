@@ -8,7 +8,7 @@ SRCDIR = src
 OBJDIR = obj
 
 CFLAGS = -m32 -ffreestanding -O2 -Wall -Wextra -Isrc -Isrc/drivers -fno-builtin
-LDFLAGS = -m32 -T linker.ld -nostdlib
+LDFLAGS = -m32 -T linker.ld -nostdlib -nodefaultlibs -nostartfiles
 
 SRCS_C := $(shell find $(SRCDIR) -name '*.c')
 SRCS_ASM := $(shell find arch -name '*.asm')
@@ -35,3 +35,8 @@ $(OBJDIR)/arch/%.o: arch/%.asm
 
 clean:
 	rm -rf $(OBJDIR) $(KERNEL)
+.PHONY: all clean qemu
+
+qemu: $(KERNEL)
+	qemu-system-i386 -kernel $(KERNEL)
+# YAY!
