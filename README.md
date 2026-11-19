@@ -1,33 +1,22 @@
 # ~~~ANIX~~~ #
 My OS/kernel 😃😃😃
-Anix is a to-be somewhat functional OS made by mflight. The goal is "Age doesn't matter" and MFlight wants to accomplish making an OS, being 9. the operating system will help users function the terminal as a middle-man between Windows, which looks like this:
 
-```text
-[any program, whatever] --install
-```               
+> Age doesn't matter
 
-Then Linux, which, in Debian-based distros, is this:
-```text
-sudo apt-get install [any program] or sudo apt install [any program]
-```
+## What is Anix?
 
-Then in Fedora:
-```text
-sudo dnf install [A program]
-```
+ANIX is an operating system designed to do nothing (Tadaaaaaaaa). It was developed by Mflight248 in 2026 and has been on this earth for approximately 0 years.
 
-Then Arch:
-```text
-sudo pacman -S [A program]
-```
+## What can you do with Anix?
 
-Then SUSE:
-```text
-sudo zypper install [Program(LMMS???)]
-```
-
-So, MFlight wants to make it universal, so you can do all of the above. For now, ANIX is focused on Linux. Windows support may come later.
-
+<ul>
+  <li>Open it</li>
+  <li>Stare at it</li>
+  <li>Use it + your monitor as a leg rest</li>
+  <li>Sit on it (Not a good idea )</li>
+  <li>Turn it off via a button or switch</li>
+  <li>Stare at it (I just said that, didn't I)</li>
+</ul>
 
 So... That sounds easier, right? Well, there could be security flaws, right? So, if you want to run it, you can't just press the play button and run this in, say VSCode. This next part will help you run this on Windows and Linux (MacOS I don't know) :P
 
