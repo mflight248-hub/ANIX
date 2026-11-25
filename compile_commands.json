@@ -1,0 +1,42 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-m32",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Isrc",
+      "-Isrc/drivers",
+      "-fno-builtin",
+      "-c",
+      "-o",
+      "obj/drivers/keyboard.o",
+      "src/drivers/keyboard.c"
+    ],
+    "directory": "/mnt/c/programming/ANIX",
+    "file": "/mnt/c/programming/ANIX/src/drivers/keyboard.c",
+    "output": "/mnt/c/programming/ANIX/obj/drivers/keyboard.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-m32",
+      "-ffreestanding",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Isrc",
+      "-Isrc/drivers",
+      "-fno-builtin",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/mnt/c/programming/ANIX",
+    "file": "/mnt/c/programming/ANIX/src/main.c",
+    "output": "/mnt/c/programming/ANIX/obj/main.o"
+  }
+]

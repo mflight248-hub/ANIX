@@ -1,44 +1,6 @@
 #include "vga.h"
 #include "x86.h"
-
-struct idt_entry {
-    unsigned short low_offset;
-    unsigned short selector;
-    unsigned char  always0;
-    unsigned char  flags;
-    unsigned short high_offset;
-} __attribute__((packed));
-
-struct idt_ptr {
-    unsigned short limit;
-    unsigned int   base;
-} __attribute__((packed));
-
-struct idt_entry idt[256];
-struct idt_ptr idtp;
-
-extern void keyboard_isr_asm_stub(void);
-
-void set_idt_gate(unsigned char num, unsigned int base) {
-    idt[num].low_offset  = (base & 0xFFFF);
-    idt[num].selector    = 0x08;
-    idt[num].always0     = 0;
-    idt[num].flags       = 0x8E;
-    idt[num].high_offset = ((base >> 16) & 0xFFFF);
-}
-
-void init_idt(void) {
-    idtp.limit = (sizeof(struct idt_entry) * 256) - 1;
-    idtp.base  = (unsigned int)&idt;
-
-    for(int i = 0; i < 256; i++) {
-        set_idt_gate(i, 0);
-    }
-
-    set_idt_gate(33, (unsigned int)keyboard_isr_asm_stub);
-
-    __asm__ volatile("lidt %0" : : "m"(idtp));
-}
+#include "keyboard.h"
 
 void kernel_main(void) {
     print_char('\\', 0, 0); print_char('/',  1, 0); print_char('\\', 2, 0); print_char('/',  3, 0);
@@ -53,8 +15,9 @@ void kernel_main(void) {
     print_char(' ',  36, 0); print_char('|',  37, 0); print_char(' ',  38, 0); print_char('\\', 39, 0);
     print_char('/',  40, 0); print_char('X',  41, 0);
 
-    init_idt();
-
-    __asm__ volatile("sti");
-    while(1);
+    print_char('$', 0, 1);
+    keyboard_install();
+    while (1) {
+        keyboard_handler();
+    }
 }
