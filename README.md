@@ -70,7 +70,7 @@ And enjoy using this in the QEMU window!
 
 ## Linux
 
-In Linux, you have more support to dev stuff, and this will be great for this project! <i>Miss out the steps for wsl --install for the <a href = [https://github.com/mflight248-hub/ANIX/edit/main/README.md#windows>Windows](https://github.com/mflight248-hub/ANIX/edit/main/README.md#windows>Windows)</a> section and run the compiling and QEMU code.</i>
+In Linux, you have more support to dev stuff, and this will be great for this project! <i>Miss out the steps for wsl --install for the <a href="#Windows">Windows</a> section and run the compiling and QEMU code.</i>
 
 ## Alternative for WSL and Linux
 
