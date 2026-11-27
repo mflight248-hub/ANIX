@@ -3,6 +3,7 @@
 #include "keyboard.h"
 
 void kernel_main(void) {
+    __asm__ volatile ("cli"); 
     print_char('\\', 0, 0); print_char('/',  1, 0); print_char('\\', 2, 0); print_char('/',  3, 0);
     print_char(' ',  4, 0); print_char('E',  5, 0); print_char(' ',  6, 0); print_char('|',  7, 0);
     print_char('_',  8, 0); print_char(' ',  9, 0); print_char('(',  10, 0); print_char(' ',  11, 0);
@@ -14,9 +15,6 @@ void kernel_main(void) {
     print_char(' ',  32, 0); print_char('|',  33, 0); print_char('\\', 34, 0); print_char('|',  35, 0);
     print_char(' ',  36, 0); print_char('|',  37, 0); print_char(' ',  38, 0); print_char('\\', 39, 0);
     print_char('/',  40, 0); print_char('X',  41, 0);
-
-    print_char('$', 0, 1);
-    keyboard_install();
     while (1) {
         keyboard_handler();
     }
